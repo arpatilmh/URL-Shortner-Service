@@ -1,11 +1,11 @@
-package com.arpatilmh;
+package com.arpatilmh.controller;
 
 import java.io.Serializable;
 
 public class ShortenRequest implements Serializable {
     private String url;
     private String alias;
-    private Long expiration;  // Using Long to handle null values
+    private Long expiration;
 
     // Default constructor (required for JSON deserialization)
     public ShortenRequest() {
@@ -43,13 +43,13 @@ public class ShortenRequest implements Serializable {
         this.expiration = expiration;
     }
 
-    // toString() for logging/debugging (optional)
     @Override
     public String toString() {
-        return "ShortenRequest{" +
-                "url='" + url + '\'' +
-                ", alias='" + alias + '\'' +
-                ", expiration=" + expiration +
-                '}';
+        return new StringBuilder("ShortenRequest{")
+                .append("url='").append(url).append('\'')
+                .append(", alias='").append(alias).append('\'')
+                .append(", expiration=").append(expiration)
+                .append('}')
+                .toString();
     }
 }
